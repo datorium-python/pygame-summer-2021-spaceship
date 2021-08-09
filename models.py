@@ -32,3 +32,23 @@ class Spaceship:
         coordinates = [self.x_position, self.y_position]
         window.blit(Spaceship.image, coordinates)
 
+
+class Missile:
+    
+    image = pygame.image.load('missile.png')
+    speed = 1.2
+
+    def __init__(self, spaceship):
+        
+        self.x_position = spaceship.x_position
+        self.y_position = spaceship.y_position
+
+        self.damage = 10.5
+
+    def move(self):
+        self.y_position -= Missile.speed
+
+    def draw(self, window):
+
+        coordinates = [self.x_position, self.y_position]
+        window.blit(Missile.image, coordinates)
