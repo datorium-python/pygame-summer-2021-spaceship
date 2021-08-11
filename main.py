@@ -1,7 +1,10 @@
 import pygame
 import constants
 
-from models import Spaceship
+from models import (
+    Spaceship,
+    Missile,
+)
 
 from random import randint
 
@@ -12,11 +15,12 @@ pygame.display.set_caption('spaceship pew pew')
 pygame.display.set_icon(constants.ICON_IMAGE)
 
 
-def render(spaceship):
+def render(spaceship, missile):
 
     window.blit(constants.BACKGROUND_IMAGE, [0, 0])
 
     spaceship.draw(window)
+    missile.draw(window)
 
     pygame.display.update()
 
@@ -25,16 +29,19 @@ spaceship = Spaceship(
     y=randint(0, window.get_height() - Spaceship.image.get_height()),
 )
 
-
 while True:
 
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT:
             pygame.quit()
+            
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            
+            if event.button == 1:
+                missile = Missile(spaceship)
 
     keys = pygame.key.get_pressed()
     spaceship.move(window, keys)
     
-
-    render(spaceship)
+    render(spaceship, missile)
