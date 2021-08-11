@@ -15,12 +15,14 @@ pygame.display.set_caption('spaceship pew pew')
 pygame.display.set_icon(constants.ICON_IMAGE)
 
 
-def render(spaceship, missile):
+def render(spaceship, missiles):
 
     window.blit(constants.BACKGROUND_IMAGE, [0, 0])
 
     spaceship.draw(window)
-    missile.draw(window)
+    
+    for missile in missiles:
+        missile.draw(window)
 
     pygame.display.update()
 
@@ -28,6 +30,8 @@ spaceship = Spaceship(
     x=randint(0, window.get_width() - Spaceship.image.get_width()),
     y=randint(0, window.get_height() - Spaceship.image.get_height()),
 )
+
+missiles = []
 
 while True:
 
@@ -40,8 +44,10 @@ while True:
             
             if event.button == 1:
                 missile = Missile(spaceship)
+                missiles.append(missile)
+
 
     keys = pygame.key.get_pressed()
     spaceship.move(window, keys)
     
-    render(spaceship, missile)
+    render(spaceship, missiles)
