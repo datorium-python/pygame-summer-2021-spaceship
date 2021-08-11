@@ -40,8 +40,8 @@ class Missile:
 
     def __init__(self, spaceship):
         
-        self.x_position = spaceship.x_position
-        self.y_position = spaceship.y_position
+        self.x_position = spaceship.x_position + (Spaceship.image.get_width() / 2) - (Missile.image.get_width() / 2)
+        self.y_position = spaceship.y_position - Missile.image.get_height()
 
         self.damage = 10.5
 
