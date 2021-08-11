@@ -52,3 +52,24 @@ class Missile:
 
         coordinates = [self.x_position, self.y_position]
         window.blit(Missile.image, coordinates)
+
+
+class Asteroid:
+    
+    image = pygame.image.load('asteroid.png')
+    speed = 0.7
+
+    def __init__(self, x, y):
+        
+        self.x_position = x
+        self.y_position = y
+
+        self.damage = 20
+
+    def move(self):
+        self.y_position += Asteroid.speed
+
+    def draw(self, window):
+
+        coordinates = [self.x_position, self.y_position]
+        window.blit(Asteroid.image, coordinates)
