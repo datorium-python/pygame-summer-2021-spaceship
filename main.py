@@ -46,6 +46,8 @@ while True:
                 missile = Missile(spaceship)
                 missiles.append(missile)
 
+    for missile in missiles:
+        missile.move()
 
     keys = pygame.key.get_pressed()
     spaceship.move(window, keys)
