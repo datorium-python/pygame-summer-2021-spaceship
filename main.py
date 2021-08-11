@@ -4,6 +4,7 @@ import constants
 from models import (
     Spaceship,
     Missile,
+    Asteroid,
 )
 
 from random import randint
@@ -13,7 +14,6 @@ pygame.init()
 window = pygame.display.set_mode(constants.SIZE)
 pygame.display.set_caption('spaceship pew pew')
 pygame.display.set_icon(constants.ICON_IMAGE)
-
 
 def render(spaceship, missiles):
 
@@ -33,6 +33,8 @@ spaceship = Spaceship(
 
 missiles = []
 
+pygame.time.set_timer(pygame.USEREVENT, 375)
+
 while True:
 
     for event in pygame.event.get():
@@ -45,6 +47,9 @@ while True:
             if event.button == 1:
                 missile = Missile(spaceship)
                 missiles.append(missile)
+
+        if event.type == pygame.USEREVENT:
+            print('THIS IS USER EVENT')
 
     for missile in missiles:
 

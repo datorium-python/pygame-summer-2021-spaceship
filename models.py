@@ -57,7 +57,7 @@ class Missile:
 class Asteroid:
     
     image = pygame.image.load('asteroid.png')
-    speed = 0.7
+    speed = 0.4
 
     def __init__(self, x, y):
         
