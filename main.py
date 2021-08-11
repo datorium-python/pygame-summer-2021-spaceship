@@ -47,7 +47,11 @@ while True:
                 missiles.append(missile)
 
     for missile in missiles:
+
         missile.move()
+
+        if missile.y_position <= -missile.image.get_height():
+            missiles.remove(missile)
 
     keys = pygame.key.get_pressed()
     spaceship.move(window, keys)

@@ -4,7 +4,7 @@ import pygame
 class Spaceship:
 
     image = pygame.image.load('spaceship.png')
-    speed = 0.7
+    speed = 0.5
 
     def __init__(self, x, y):
         
@@ -36,7 +36,7 @@ class Spaceship:
 class Missile:
     
     image = pygame.image.load('missile.png')
-    speed = 1.2
+    speed = 0.7
 
     def __init__(self, spaceship):
         
